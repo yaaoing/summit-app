@@ -3,95 +3,262 @@
 
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
-		<link href="css/mui.min.css" rel="stylesheet" />
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+		<link rel="stylesheet" href="css/mui.min.css">
 		<style>
-			ul {
-				font-size: 14px;
-				color: #8f8f94;
+			html,
+			body {
+				background-color: #efeff4;
 			}
-			.mui-btn {
-				padding: 10px;
+			
+			p {
+				text-indent: 22px;
+			}
+			
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			
+			.title {
+				margin: 35px 15px 10px;
+			}
+			
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			#offCanvasContentScroll {
+				background-color: #FFFFFF;
+			}
+			
+			input {
+				color: #000;
+			}
+			
+			#main-menu {
+				margin: auto;
+			}
+			
+			.mui-table-view:after {
+				height: 0;
+			}
+			
+			.mui-table-view:before {
+				height: 0;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
-			<h1 class="mui-title">登录模板</h1>
-			<button id='setting' class=" mui-pull-right mui-btn-link">设置</button>
-		</header>
-		<div class="mui-content">
-			<div class="mui-content-padded">
-				<p>
-					您好 <span id='account'></span>，您已成功登录。
-					<ul>
-						<li>这是mui带登录和设置模板的示例App首页。</li>
-						<li>您可以点击右上角的 “设置” 按钮，进入设置模板，体验div窗体切换示例。</li>
-						<li>在 “设置” 中点击 “退出” 可以 “注销当前账户” 或 “直接关闭应用”。</li>
-						<li>你可以设置 “锁屏图案”，这样可通过手势密码代替输入账号、密码；</li>
-					</ul>
-				</p>
-				<!--<button  class="mui-btn mui-btn-block mui-btn-primary">设置</button>-->
-				<!--
-				<button id='exit' class="mui-btn mui-btn-block mui-btn-green">关闭</button>
-                <button id='logout' class="mui-btn mui-btn-red mui-btn-block">注销登录</button>
-                -->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view" style="background-color: transparent;margin-bottom: 30px;margin-top: 30px;">
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="images/haibao.jpg" style="width: 25%;">
+									<div class="mui-media-body">Leo
+										<p class='mui-ellipsis'>Katherine是个瓜瓜皮</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+									个人信息
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+									设置
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<h1 id="title" class="mui-title">计划</h1>
+				</header>
+				<nav class="mui-bar mui-bar-tab">
+					<a id="defaultTab" class="mui-tab-item mui-active" href="tab-webview-subpage-about.html">
+						<span id="main-menu" class="mui-icon mui-icon-compose"></span>
+						<span class="mui-tab-label">计划</span>
+					</a>
+					<a class="mui-tab-item" href="tab-webview-subpage-chat.html">
+						<span id="main-menu" class="mui-icon mui-icon-chatbubble"></span>
+						<span class="mui-tab-label">消息</span>
+					</a>
+					<a class="mui-tab-item" href="tab-webview-subpage-contact.html">
+						<span id="main-menu" class="mui-icon mui-icon-person"></span>
+						<span class="mui-tab-label">朋友</span>
+					</a>
+				</nav>
+				<!--<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">-->
+					<div class="mui-scroll">
+						<div class="mui-content-padded">
+							<div class="mui-input-row mui-search">
+								<input type="search" class="mui-input-clear" placeholder="" style="background-color: #F7F7F8;">
+							</div>
+							<!--详细列表-->
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="images/user-photo.png">
+										<div class="mui-media-body">
+											幸福
+											<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="images/haibao.jpg">
+										<div class="mui-media-body">
+											木屋
+											<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="images/haibao.jpg">
+										<div class="mui-media-body">
+											CBD
+											<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
-		<script src="js/app.js"></script>
 		<script>
-			(function($, doc) {
-				$.init();
-				var settings = app.getSettings();
-				var account = doc.getElementById('account');
-				//
-				window.addEventListener('show', function() {
-					var state = app.getState();
-					account.innerText = state.account;
-				}, false);
-				$.plusReady(function() {
-					var settingPage = $.preload({
-						"id": 'setting',
-						"url": 'setting.html'
-					});
-					//设置
-					var settingButton = doc.getElementById('setting');
-					//settingButton.style.display = settings.autoLogin ? 'block' : 'none';
-					settingButton.addEventListener('tap', function(event) {
-						$.openWindow({
-							id: 'setting',
-							show: {
-								aniShow: 'pop-in'
-							},
-							styles: {
-								popGesture: 'hide'
-							},
-							waiting: {
-								autoShow: false
-							}
-						});
-					});
-					//--
-					$.oldBack = mui.back;
-					var backButtonPress = 0;
-					$.back = function(event) {
-						backButtonPress++;
-						if (backButtonPress > 1) {
-							plus.runtime.quit();
-						} else {
-							plus.nativeUI.toast('再按一次退出应用');
-						}
-						setTimeout(function() {
-							backButtonPress = 0;
-						}, 1000);
-						return false;
-					};
-				});
-			}(mui, document));
+			mui.init();
+			//侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			//主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			//菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+			//移动效果是否为整体移动
+			var moveTogether = false;
+			//侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			var classList = offCanvasWrapper[0].classList;
+			classList.add('mui-slide-in');
+			//变换侧滑动画移动效果；
+			mui('.mui-input-group').on('change', 'input', function() {
+				if(this.checked) {
+					offCanvasSide.classList.remove('mui-transitioning');
+					offCanvasSide.setAttribute('style', '');
+					classList.remove('mui-slide-in');
+					classList.remove('mui-scalable');
+					if(moveTogether) {
+						//仅主内容滑动时，侧滑菜单在off-canvas-wrap内，和主界面并列
+						offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+					}
+					offCanvasWrapper.offCanvas().refresh();
+				}
+			});
+			//主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll();
+			mui('#offCanvasContentScroll').scroll();
+			//实现ios平台原生侧滑关闭页面；
+			//			if(mui.os.plus && mui.os.ios) {
+			//				mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+			//					plus.webview.currentWebview().setStyle({
+			//						'popGesture': 'none'
+			//					});
+			//				});
+			//			}
+			var subpages = ['tab-webview-subpage-about.html', 'tab-webview-subpage-chat.html', 'tab-webview-subpage-contact.html'];
+			var subpage_style = {
+				top: '45px',
+				bottom: '51px'
+			};
+
+			var aniShow = {};
+
+			//创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				for(var i = 0; i < 4; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if(i > 0) {
+						sub.hide();
+					} else {
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow, temp);
+					}
+					self.append(sub);
+				}
+			});
+			//当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			//选项卡点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				if(targetTab == activeTab) {
+					return;
+				}
+				//更换标题
+				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				//显示目标选项卡
+				//若为iOS平台或非首次显示，则直接显示
+				if(mui.os.ios || aniShow[targetTab]) {
+					plus.webview.show(targetTab);
+				} else {
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow, temp);
+					plus.webview.show(targetTab, "fade-in", 300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+			//自定义事件，模拟点击“首页选项卡”
+			document.addEventListener('gohome', function() {
+				var defaultTab = document.getElementById("defaultTab");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+				if(defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});
 		</script>
 	</body>
 
